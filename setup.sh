@@ -3,8 +3,8 @@
 # Create the .bashrc.d directory if it does not exist and add it to .bashrc
 mkdir -p ~/.bashrc.d
 chmod 700 ~/.bashrc.d
-if ! grep -q "for file in ~/.bashrc.d/*.bashrc" ~/.bashrc; then
-    echo 'for file in ~/.bashrc.d/*.bashrc; do' >> ~/.bashrc
+if ! grep -q "for file in ~/.bashrc.d/*" ~/.bashrc; then
+    echo 'for file in ~/.bashrc.d/*; do' >> ~/.bashrc
     echo '    source "$file"' >> ~/.bashrc
     echo 'done' >> ~/.bashrc
 fi
