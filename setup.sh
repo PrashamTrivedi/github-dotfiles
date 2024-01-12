@@ -3,6 +3,14 @@
 # Create the .bashrc.d directory if it does not exist and add it to .bashrc
 mkdir -p ~/.bashrc.d
 chmod 700 ~/.bashrc.d
+
+# Install Assistants CLI
+curl -L "https://github.com/PrashamTrivedi/assistants-cli/releases/latest/download/assistants-cli_Linux_x86_64.tar.gz" -o "assistants-cli.tar.gz"
+mkdir -p ~/assistant-cli
+tar -xvf assistants-cli.tar.gz -C ~/assistant-cli
+chmod +x ~/assistant-cli/assistants-cli
+sudo ln -s ~/assistant-cli/assistants-cli /usr/bin/assistant-cli
+
 if ! grep -q "for file in ~/.bashrc.d/*" ~/.bashrc; then
     echo 'for file in ~/.bashrc.d/*; do' >> ~/.bashrc
     echo '    source "$file"' >> ~/.bashrc
